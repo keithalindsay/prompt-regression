@@ -230,7 +230,7 @@ npx prompt-regression run                       # shows DRIFT with a diff, exit 
 npx prompt-regression approve --filter hello    # bless the new output
 npx prompt-regression run --ci                  # green build
 
-ANTHROPIC_API_KEY=sk-... npx prompt-regression run --provider anthropic --model claude-3-5-haiku-latest
+ANTHROPIC_API_KEY=sk-... npx prompt-regression run --provider anthropic --model claude-haiku-4-5
 ```
 
 ### Config file: `prompt-regression.config.yaml`

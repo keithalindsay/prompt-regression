@@ -65,7 +65,7 @@ Exit: 1
 
 ```bash
 export ANTHROPIC_API_KEY=sk-...
-npx prompt-regression run --provider anthropic --model claude-3-5-haiku-latest
+npx prompt-regression run --provider anthropic --model claude-haiku-4-5
 
 export OPENAI_API_KEY=sk-...
 npx prompt-regression run --provider openai --model gpt-4o-mini
