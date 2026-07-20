@@ -1,0 +1,6 @@
+id: hello
+name: "Friendly greeting"
+system: "You are a concise assistant."
+prompt: "Greet {{name}} in one short sentence."
+input:
+  name: "Ada"
