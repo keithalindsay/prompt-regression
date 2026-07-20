@@ -3,7 +3,7 @@
 > Build-ready design package. An expert coding agent should be able to implement the v1 MVP
 > from this document with **no further questions**. Read this top to bottom before writing code.
 >
-> Author: Keith Lindsay (GitHub: [Aigeninc](https://github.com/Aigeninc)) · License: MIT © 2026 Keith Lindsay
+> Author: Keith Lindsay (GitHub: [keithalindsay](https://github.com/keithalindsay)) · License: MIT © 2026 Keith Lindsay
 
 ---
 

@@ -13,7 +13,7 @@
     "openai",
     "cli"
   ],
-  "author": "Keith Lindsay (https://github.com/Aigeninc)",
+  "author": "Keith Lindsay (https://github.com/keithalindsay)",
   "license": "MIT",
   "type": "module",
   "engines": {
@@ -62,10 +62,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Aigeninc/prompt-regression.git"
+    "url": "https://github.com/keithalindsay/prompt-regression.git"
   },
   "bugs": {
-    "url": "https://github.com/Aigeninc/prompt-regression/issues"
+    "url": "https://github.com/keithalindsay/prompt-regression/issues"
   },
-  "homepage": "https://github.com/Aigeninc/prompt-regression#readme"
+  "homepage": "https://github.com/keithalindsay/prompt-regression#readme"
 }
