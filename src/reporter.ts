@@ -12,11 +12,21 @@ function colorize(verdict: CaseResult["verdict"], color: boolean): string {
   }
 }
 
-function indentDiff(diff: string): string {
+function colorizeDiffLine(line: string, color: boolean): string {
+  if (!color) return line;
+  if (line.startsWith("+++") || line.startsWith("---")) return pc.dim(line);
+  if (line.startsWith("@@")) return pc.cyan(line);
+  if (line.startsWith("=")) return pc.dim(line);
+  if (line.startsWith("+")) return pc.green(line);
+  if (line.startsWith("-")) return pc.red(line);
+  return line;
+}
+
+function indentDiff(diff: string, color: boolean): string {
   return diff
     .split("\n")
     .filter((l) => l.length > 0)
-    .map((l) => "    " + l)
+    .map((l) => "    " + colorizeDiffLine(l, color))
     .join("\n");
 }
 
@@ -45,7 +55,7 @@ export function renderReport(
     lines.push(head);
     if (opts.showDiff && r.verdict === "DRIFT" && r.textDiff) {
       lines.push("");
-      lines.push(indentDiff(r.textDiff));
+      lines.push(indentDiff(r.textDiff, opts.color));
       lines.push("");
     }
   }

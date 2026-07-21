@@ -9,7 +9,6 @@ prompts.
 
 ## Screenshot
 
-<!-- TODO: replace with a GIF/PNG of a DRIFT run showing the colored unified diff -->
 ![prompt-regression showing a DRIFT diff](docs/screenshot.png)
 
 ## Why
