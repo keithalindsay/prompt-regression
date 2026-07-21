@@ -8,6 +8,7 @@ import { makeBaseline, readBaseline, writeBaseline } from "./baselines";
 import { compare } from "./comparator";
 import { tokenSetCosine } from "./util/similarity";
 import { writeText } from "./util/fs";
+import { sha256 } from "./util/hash";
 
 export interface RunOptions {
   config: Config;
@@ -56,6 +57,8 @@ export async function runCases(opts: RunOptions): Promise<RunReport> {
 
     try {
       const { system, user } = renderPrompt(c);
+      const renderedPrompt = (system ?? "") + "\n" + user;
+      const renderedPromptHash = sha256(renderedPrompt);
 
       let provider = providerCache.get(providerName);
       if (!provider) {
@@ -84,11 +87,16 @@ export async function runCases(opts: RunOptions): Promise<RunReport> {
         thresholds, contextLines: config.report.contextLines, semanticScore,
       });
 
+      result.params = { temperature, maxTokens };
+      result.renderedPromptHash = renderedPromptHash;
+      result.baselineWritten = false;
+
       if (result.verdict === "NEW" && updateOnNew) {
         writeBaseline(config, cwd, makeBaseline({
           caseId: c.id, provider: providerName, model, temperature, maxTokens,
-          renderedPrompt: (system ?? "") + "\n" + user, output, approvedBy: "cli", createdAt: now,
+          renderedPromptHash, output, approvedBy: "cli", createdAt: now,
         }));
+        result.baselineWritten = true;
       }
 
       results.push(result);

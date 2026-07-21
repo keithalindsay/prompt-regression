@@ -36,7 +36,7 @@ export function renderReport(
 
   for (const r of report.results) {
     let head = `  ${colorize(r.verdict, opts.color)}  ${r.caseId}`;
-    if (r.verdict === "NEW") head += "   (baseline created)";
+    if (r.verdict === "NEW" && r.baselineWritten) head += "   (baseline created)";
     if (r.verdict === "ERROR") head += `   ${r.error ?? ""}`;
     if (r.semanticScore !== undefined && (r.verdict === "DRIFT" || r.verdict === "PASS")) {
       head += `   semantic=${r.semanticScore.toFixed(2)}`;

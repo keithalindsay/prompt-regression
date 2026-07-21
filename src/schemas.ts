@@ -82,6 +82,12 @@ export const CaseResultSchema = z.object({
   textDiff: z.string().optional(),
   changedLines: z.object({ added: z.number(), removed: z.number() }).optional(),
   error: z.string().optional(),
+  // Actual params + rendered-prompt hash used for this case, so `approve` can
+  // persist a faithful baseline instead of reconstructing from config defaults.
+  params: z.object({ temperature: z.number(), maxTokens: z.number() }).optional(),
+  renderedPromptHash: z.string().optional(),
+  // Whether the runner actually wrote a baseline for this NEW case.
+  baselineWritten: z.boolean().optional(),
 });
 export type CaseResult = z.infer<typeof CaseResultSchema>;
 

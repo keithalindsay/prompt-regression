@@ -24,5 +24,9 @@ export async function getProvider(name: ProviderName): Promise<Provider> {
       const { createOpenAIProvider } = await import("./openai");
       return createOpenAIProvider();
     }
+    default:
+      throw new ProviderError(
+        `unknown provider '${name}' (valid: mock, anthropic, openai)`,
+      );
   }
 }

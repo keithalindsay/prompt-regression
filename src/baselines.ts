@@ -30,7 +30,9 @@ export function makeBaseline(args: {
   model: string;
   temperature: number;
   maxTokens: number;
-  renderedPrompt: string;
+  // Provide the rendered prompt (it will be hashed) or a precomputed hash.
+  renderedPrompt?: string;
+  renderedPromptHash?: string;
   output: string;
   approvedBy: string;
   createdAt: string;
@@ -41,7 +43,7 @@ export function makeBaseline(args: {
     provider: args.provider,
     model: args.model,
     params: { temperature: args.temperature, maxTokens: args.maxTokens },
-    renderedPromptHash: sha256(args.renderedPrompt),
+    renderedPromptHash: args.renderedPromptHash ?? sha256(args.renderedPrompt ?? ""),
     output: args.output,
     outputHash: sha256(args.output),
     createdAt: args.createdAt,
