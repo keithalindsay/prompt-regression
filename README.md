@@ -92,5 +92,5 @@ MIT © 2026 Keith Lindsay
 
 ## Companion blog post
 
-Pairs with **"How to Ship an AI Feature in a Quarter"** — this tool is the regression gate from that
-post. <!-- TODO: add published URL -->
+Pairs with [**"How to Ship an AI Feature in a Quarter"**](https://keithlindsay.com/blog/shipping-ai-in-one-quarter) —
+this tool is the regression gate from that post.
